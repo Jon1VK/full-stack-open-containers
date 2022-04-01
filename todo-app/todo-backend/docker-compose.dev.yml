@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:5.0.6@sha256:f8b2c5ed1ad675d9b78a3c8f0250c893be5897b5e575a72e1193a9d18212e45f
+    volumes:
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+  redis:
+    image: redis:6.2.6-alpine@sha256:ca38cddd6694826520a51fc00e252acd3f5b66bfb4c208ad9548cbbe76d1a929
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - ./redis_data:/data
+    ports:
+      - 6379:6379
