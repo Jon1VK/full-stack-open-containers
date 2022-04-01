@@ -1,0 +1,12 @@
+Script started on 2022-04-01 19:53:18+03:00 [TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="97" LINES="18"]
+[0;33m[19:53] [0;32mjon1vk [01;34m~/github/full-stack-open-containers/script-answers[1;31m(main)[m docker container run -it ubuntu bash
+]0;root@b3b4948d04ad: /root@b3b4948d04ad:/# [K]0;root@b3b4948d04ad: /root@b3b4948d04ad:/# mkdir user. /  r/   r/src/app
+]0;root@b3b4948d04ad: /root@b3b4948d04ad:/# touch usr/str c  rc/app/index/.  .js
+]0;root@b3b4948d04ad: /root@b3b4948d04ad:/# [Kls usr/ds s  src/app/o 
+index.js
+]0;root@b3b4948d04ad: /root@b3b4948d04ad:/# exit
+exit
+[0;33m[19:54] [0;32mjon1vk [01;34m~/github/full-stack-open-containers/script-answers[1;31m(main)[m exot[K[Kit
+exit
+
+Script done on 2022-04-01 19:54:09+03:00 [COMMAND_EXIT_CODE="0"]
