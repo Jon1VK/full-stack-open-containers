@@ -1,0 +1,35 @@
+services:
+  frontend:
+    image: bloglist-app-frontend-dev
+    build:
+      context: ./frontend
+      target: development
+    volumes:
+      - ./frontend:/usr/src/app
+    environment:
+      - PORT=80
+  backend:
+    image: bloglist-app-backend-dev
+    build:
+      context: ./backend
+      target: development
+    volumes:
+      - ./backend:/usr/src/app
+    environment:
+      - SECRET=OAIBxGvejftEZ1khkpDqD2Dl3QmRL2Xb
+      - MONGODB_URI=mongodb://root:password@mongo:27017/
+      - PORT=80
+  mongo:
+    image: mongo:5.0.6
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+  nginx:
+    image: nginx:1.21.6-alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80
+    depends_on:
+      - frontend
+      - backend

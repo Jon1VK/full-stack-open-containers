@@ -1,0 +1,24 @@
+services:
+  frontend:
+    image: bloglist-app-frontend
+    build:
+      context: ./frontend
+    environment:
+      - PORT=80
+  backend:
+    image: bloglist-app-backend
+    build:
+      context: ./backend
+    environment:
+      - SECRET=OAIBxGvejftEZ1khkpDqD2Dl3QmRL2Xb
+      - MONGODB_URI=mongodb+srv://admin:HYUTN6vmcs6CGVvF@cluster0.1som2.mongodb.net/bloglistApp?retryWrites=true
+      - PORT=80
+  nginx:
+    image: nginx:1.21.6-alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80
+    depends_on:
+      - frontend
+      - backend
