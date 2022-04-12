@@ -1,7 +1,6 @@
+node_modules
 .dockerignore
 .gitignore
 Dockerfile
-node_modules/
 README.md
-redis_data/
-.env
+.env.local

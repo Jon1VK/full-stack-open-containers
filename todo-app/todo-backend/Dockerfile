@@ -1,7 +1,14 @@
-FROM node:lts-alpine@sha256:5e20a4e2e52daa1743006c224f2971b1218201e284d17c6eff4a696c9020f1a2
-ENV NODE_ENV=production
+FROM node:16-alpine3.15 AS base
 WORKDIR /usr/src/app
 COPY --chown=node:node . .
-RUN npm ci --only=production
+
+FROM base as development
+ENV NODE_ENV=development
+RUN npm install
+CMD ["npm", "run", "dev"]
+
+FROM base AS build
+ENV NODE_ENV=production
+RUN npm ci
 USER node
-CMD npm start
+CMD ["npm", "start"]
